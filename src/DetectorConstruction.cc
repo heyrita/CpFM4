@@ -149,6 +149,7 @@ void DetectorConstruction::DefineMaterials()
     absorber_1.material = Aluminum;
     absorber_2.material = Aluminum;
 
+
     //
     // Generate and Add Material Properties Table
     //
@@ -334,84 +335,138 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     // SOURCE SHIELD
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
 
-    G4VSolid* source_shield_tube1 = new G4Tubs("Shield1",0.0,30.0*mm,23.0*mm,0.0*deg,360.0*deg);
-    //G4VSolid* source_shield_hole1 = new G4Tubs("Hole1",0.0,4.0*mm,4.0*mm,0.0*deg,360.0*deg);
-    G4VSolid* source_shield_hole2 = new G4Tubs("Hole2",0.0,1.5*mm,7.0*mm,0.0*deg,360.0*deg);
-    G4VSolid* source_shield_hole3 = new G4Tubs("Hole3",0.0,5.6*mm,20.0*mm,0.0*deg,360.0*deg);
+   G4Material* holder_mat = nist->FindOrBuildMaterial("Aluminum");
+  
+                     
+//HOLDER
+  G4double part1_lenght=47.96*mm;
+  G4double part1_width=23.85*mm;
+  G4double part1_height=16.15*mm;
 
-    G4ThreeVector Translation;
-    Translation.setX(0.0);
-    Translation.setY(0.0);
-    Translation.setZ(7.0*mm);
 
-    G4RotationMatrix Rotation;
-    Rotation.rotateY(90.0*deg);
-    G4Transform3D Transform;
-    Transform = G4Transform3D(Rotation, Translation);
-    Rotation.rotateY(-90.0*deg);
 
-    //G4SubtractionSolid* subtr_shield1 = new G4SubtractionSolid("Hole1",source_shield_tube1, source_shield_hole1,0,G4ThreeVector(0.0,0.0,19.0*mm));
-    G4SubtractionSolid* subtr_shield2 = new G4SubtractionSolid("Hole2",source_shield_tube1, source_shield_hole2,0,G4ThreeVector(0.0,0.0,17.5*mm));
-    G4SubtractionSolid* subtr_shield3 = new G4SubtractionSolid("Hole3",subtr_shield2, source_shield_hole3,Transform);
+  G4Box* part1Solid =
+    new G4Box("Part1",                       //its name
+       0.5*part1_width, 0.5*part1_height,0.5*part1_lenght);     //its size
 
-    source_shield1.logical = new G4LogicalVolume(subtr_shield3, source_shield1.material,"Shield1");
-    source_shield1.physical = new G4PVPlacement(0,G4ThreeVector(),source_shield1.logical,"Shield1", world.logical, false,0);
+  G4LogicalVolume* part1Logical =
+    new G4LogicalVolume(part1Solid,          //its solid
+                        holder_mat,           //its material
+                        "Part1");            //its name
 
-    G4VSolid* source_shield_tube2 = new G4Tubs("Shield2",0.0,5.5*mm,20.0*mm,0.0*deg,360.0*deg);
-    G4VSolid* source_shield_hole4 = new G4Tubs("Hole4",0.0,1.1*mm,7*mm,0.0*deg,360.0*deg);
+  G4VPhysicalVolume* part1Physical =
+    new G4PVPlacement(0,                     //no rotation
+                      G4ThreeVector(),       //at (0,0,0)
+                      part1Logical,            //its logical volume
+                      "Part1",               //its name
+                      world.logical,                     //its mother  volume
+                      false,                 //no boolean operation
+                      0,                     //copy number
+                      checkOverlaps);        //overlaps checking
 
-    Translation.setX(0.0);
-    Translation.setY(0.0);
-    Translation.setZ(0.0);
-    Rotation.rotateY(90.0*deg);
-    Transform = G4Transform3D(Rotation, Translation);
+  //....ooo0000ooooo
+  G4double part2_lenght=32.24*mm;
+  G4double part2_width=11.9*mm;
+  G4double part2_height=29.8*mm;
 
-    G4SubtractionSolid* subtr_shield4 = new G4SubtractionSolid("Hole4",source_shield_tube2, source_shield_hole4,Transform);
+  G4double cylinder_height=5*mm;
+  G4double cylinder_radius= 9.63*mm;
+  G4double cylinder3_height=(part2_width-cylinder_height)*mm; // small part of collimation hole
+  G4double cylinder3_radius= 1.6*mm;
 
-    Translation.setX(0.0);
-    Translation.setY(0.0);
-    Translation.setZ(7.0*mm);
-    Transform = G4Transform3D(Rotation, Translation);
+  G4Tubs* cylinderSolid = new G4Tubs("cylinder", 0, cylinder_radius, cylinder_height/2, 0, 360*deg);
+  G4Tubs* cylinder3Solid = new G4Tubs("cylinder3", 0, cylinder3_radius, cylinder3_height/2, 0, 360*deg);
 
-    source_shield2.logical = new G4LogicalVolume(subtr_shield4, source_shield2.material,"Shield2");
-    source_shield2.physical = new G4PVPlacement(Transform,source_shield2.logical,"Shield2", world.logical, false,0);
+  G4RotationMatrix* rotation = new G4RotationMatrix();
+  rotation->rotateY(90*deg);
 
-    // Move to position
+  G4Box* part2SolidBox =
+    new G4Box("Part2",                       //its name
+       0.5*part2_width, 0.5*part2_height,0.5*part2_lenght);     //its size
 
-    G4ThreeVector Translation1, Translation2;
-    G4RotationMatrix* Rotation1 = new G4RotationMatrix();
-    G4RotationMatrix* Rotation2 = new G4RotationMatrix();
+  G4VSolid* part2Solid_ = new G4SubtractionSolid ("part2Solid_", part2SolidBox, cylinderSolid, rotation, G4ThreeVector(-(part2_width/2-cylinder_height/2)) );
+  G4VSolid* part2Solid = new G4SubtractionSolid ("part2Solid", part2Solid_, cylinder3Solid, rotation, G4ThreeVector(cylinder3_height/2));
 
-    if(_src_conf_id == 1)
-    {
-        Translation1.setX(-23.0*mm - 3.0*UA9Const::_bar_size_X/2 - UA9Const::_distBetweenBars - _src_shiftX);
-        Translation1.setY(_src_shiftY);
-        Translation1.setZ(-UA9Const::_bar_size_Z/2 + zCopyShift + _src_shiftZ);
-        Rotation1->rotateY(-90.0*deg);
+  G4LogicalVolume* part2Logical =
+    new G4LogicalVolume(part2Solid,          //its solid
+                        holder_mat,           //its material
+                        "Part2");            //its name
 
-        Translation2.setX(-23.0*mm - 3.0*UA9Const::_bar_size_X/2 - UA9Const::_distBetweenBars - _src_shiftX + 7.0*mm);
-        Translation2.setY(_src_shiftY);
-        Translation2.setZ(-UA9Const::_bar_size_Z/2 + zCopyShift + _src_shiftZ);
-        Rotation2->rotateY(0.0*deg);
-    }
-    if(_src_conf_id == 2)
-    {
-        Translation1.setX(23.0*mm + UA9Const::_bar_size_X/2 + _src_shiftX);
-        Translation1.setY(_src_shiftY);
-        Translation1.setZ(-UA9Const::_bar_size_Z/2 + _src_shiftZ);
-        Rotation1->rotateY(90.0*deg);
+  G4VPhysicalVolume* part2Physical =
+    new G4PVPlacement(0,                     //no rotation
+                      G4ThreeVector((part1_width/2.-part2_width/2.),(part1_height/2.+part2_height/2.),0),       //at (0,0,0)
+                      part2Logical,            //its logical volume
+                      "Part2",               //its name
+                      world.logical,                     //its mother  volume
+                      false,                 //no boolean operation
+                      0,                     //copy number
+                      checkOverlaps);        //overlaps checking
 
-        Translation2.setX(23.0*mm + UA9Const::_bar_size_X/2 + _src_shiftX - 7.0*mm);
-        Translation2.setY(_src_shiftY);
-        Translation2.setZ(-UA9Const::_bar_size_Z/2 + _src_shiftZ);
-        Rotation2->rotateY(0.0*deg);
-    }
-    source_shield1.physical->SetRotation(Rotation1);
-    source_shield1.physical->SetTranslation(Translation1);
+  //....ooo0000ooooo
 
-    source_shield2.physical->SetRotation(Rotation2);
-    source_shield2.physical->SetTranslation(Translation2);
+  G4double part3_lenght=9*mm;
+  G4double part3_width=17.63*mm;
+  G4double part3_height=9*mm;
+  G4double a = 10.5*mm; //height from top to part 3
+  G4double hole_radius= 1.6*mm;
+  G4double hole_depth = part3_width;
 
+  G4Tubs* holeSolid = new G4Tubs("cylinder", 0, hole_radius, hole_depth, 0, 360*deg);
+
+  G4Box* part3SolidBox =
+    new G4Box("Part3",                       //its name
+       0.5*part3_width, 0.5*part3_height,0.5*part3_lenght);     //its size
+
+  G4VSolid* part3Solid = new G4SubtractionSolid ("part3Solid", part3SolidBox, holeSolid, rotation, G4ThreeVector() );
+
+
+
+  G4LogicalVolume* part3Logical =
+    new G4LogicalVolume(part3Solid,          //its solid
+                        holder_mat,           //its material
+                        "Part3");            //its name
+
+  G4VPhysicalVolume* part3Physical =
+    new G4PVPlacement(0,                     //no rotation
+                      G4ThreeVector((part1_width/2+part3_width/2),(part1_height/2+part2_height-a-part3_height/2),0),       //at (0,0,0)
+                      part3Logical,            //its logical volume
+                      "Part3",               //its name
+                      world.logical,                     //its mother  volume
+                      false,                 //no boolean operation
+                      0,                     //copy number
+                      checkOverlaps);        //overlaps checking
+
+
+  G4double part4_lenght=29.5*mm;
+  G4double part4_width=11.14*mm;
+  G4double part4_height=29.5*mm;
+  G4double cylinder2_radius= 19.3/2*mm;
+  G4double cylinder2_height=7.2*mm;
+
+  G4Tubs* cylinder2Solid = new G4Tubs("cylinder2", 0, cylinder2_radius, cylinder2_height, 0, 360*deg);
+
+  G4Box* part4SolidBox =
+    new G4Box("Part4",                       //its name
+       0.5*part4_width, 0.5*part4_height,0.5*part4_lenght);     //its size
+
+  G4VSolid* part4Solid = new G4SubtractionSolid ("part4Solid", part4SolidBox, cylinder2Solid, rotation, G4ThreeVector(part4_width/2-cylinder2_height/2) );
+
+
+
+  G4LogicalVolume* part4Logical =
+    new G4LogicalVolume(part4Solid,          //its solid
+                        holder_mat,           //its material
+                        "Part4");            //its name
+
+  G4VPhysicalVolume* part4Physical =
+    new G4PVPlacement(0,                     //no rotation
+                      G4ThreeVector((-part4_width/2), (part1_height/2+part4_height/2),0),       //at (0,0,0)
+                      part4Logical,            //its logical volume
+                      "Part4",               //its name
+                      world.logical,                     //its mother  volume
+                      false,                 //no boolean operation
+                      0,                     //copy number
+                      checkOverlaps);        //overlaps checking
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     // SENSETIVE
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
