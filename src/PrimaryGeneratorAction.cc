@@ -10,6 +10,7 @@
 #include "Randomize.hh"
 #include "G4RandomDirection.hh"
 #include "G4RunManager.hh"
+#include "G4IonTable.hh"
 
 //root
 #include "TMath.h"
@@ -83,7 +84,9 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
             G4double ionCharge   = 0.*eplus;
             G4double excitEnergy = 0.*keV;
 
-            G4ParticleDefinition* ion = G4ParticleTable::GetParticleTable()->GetIon(Z,A,excitEnergy);
+            G4IonTable *ionTable = G4ParticleTable::GetParticleTable()->GetIonTable();
+            G4ParticleDefinition* ion = ionTable->GetIon(Z, A, excitEnergy);
+
             _particleGun->SetParticleDefinition(ion);
             _particleGun->SetParticleCharge(ionCharge);
             _particleGun->SetParticlePosition(G4ThreeVector(PosX,PosY,PosZ));

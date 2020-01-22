@@ -1,3 +1,10 @@
+# Set some default verbose
+/control/verbose 2
+/control/saveHistory
+/run/verbose 2
+
+/run/initialize
+
 /vis/open HepRepFile
 /vis/scene/create
 /vis/scene/add/volume
@@ -23,4 +30,4 @@
 /cpfm/step/Prob2 1.0
 /cpfm/ModifyGeometry
 
-/run/beamOn 99
+/run/beamOn 1

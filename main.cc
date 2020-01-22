@@ -1,6 +1,7 @@
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
 #include "G4UIterminal.hh"
+#include "G4VisExecutive.hh"
 
 #include "globals.hh"
 
@@ -99,6 +100,11 @@ int main(int argc, char** argv)
 
   // Initialize G4 kernel
   runManager->Initialize();
+
+  G4VisManager* visManager = new G4VisExecutive;
+  // G4VisExecutive can take a verbosity argument - see /vis/verbose guidance.
+  // G4VisManager* visManager = new G4VisExecutive("Quiet");
+  visManager->Initialize();
 
   // Get the pointer to the UI manager and set verbosities
   G4UImanager* UI = G4UImanager::GetUIpointer();
