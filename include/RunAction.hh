@@ -12,6 +12,8 @@
 
 //root
 #include "TTree.h"
+#include <utility>
+#include <vector>
 
 class TFile;
 class G4Run;
@@ -30,6 +32,9 @@ public:
 public:
   void SetOutputFileName(G4String fileName) {_outputFileName = fileName;}
   G4String GetOutputFileName() { return _outputFileName;}
+  // std::pair <std::vector<std::vector<Double_t>>, 
+  //            std::vector<std::vector<Double_t>>> 
+  //            read_sizes ( const char *fName);
   TTree* tree;
   HitData HitInfo;
   EventData EventInfo;
@@ -76,6 +81,7 @@ public:
   G4int _reflectionNum[_nPhotMax];
   G4int _reflectionNum1[_nPhotMax];
   G4int _reflectionNum2[_nPhotMax];
+
 
 private:
   G4Timer* timer;

@@ -24,12 +24,11 @@
 #include "TrackingAction.hh"
 //#include "fTOF_UImessenger.hh"
 #include "SteppingVerbose.hh"
-
 #include "Randomize.hh"
-
 #include "TString.h"
-
+ 
 using namespace CLHEP;
+
 
 int main(int argc, char** argv)
 {
@@ -72,9 +71,10 @@ int main(int argc, char** argv)
   G4VUserPhysicsList* physics = new PhysicsList;
   runManager->SetUserInitialization(physics);
 
-  // Construct User Action Classes
+    // Construct User Action Classes
   RunAction* runAction = new RunAction;
   runManager->SetUserAction(runAction);
+
   //
   G4String rootFileName = argv[3];
   G4cout<<rootFileName<<G4endl;

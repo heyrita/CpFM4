@@ -45,6 +45,59 @@
 
 //root 
 #include "TMath.h"
+#include "TFile.h"
+#include "TTree.h"
+#include "TChain.h"
+#include "TTreeReader.h"
+#include "TTreeReaderValue.h"
+#include "TTreeReaderArray.h"
+#include "TChainElement.h"
+#include <vector>
+
+using namespace std; 
+
+pair <vector<vector<Double_t>>, 
+      vector<vector<Double_t>>> 
+      read_sizes (const char *fName) {
+  
+  cout << "GOONOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO" << endl;
+  TChain *fCh = new TChain("T");
+  fCh->Add(fName);
+
+  TObjArray *fileElements = fCh->GetListOfFiles();
+  Int_t nFiles = fileElements->GetEntries(); 
+
+  vector<vector<Double_t>> vWidths;
+  vWidths.resize (nFiles);
+  vector<vector<Double_t>> vLenghs;
+  vLenghs.resize (nFiles);
+
+  TIter next(fileElements);
+  TChainElement *chEl=0;
+
+  Int_t k = 0;
+
+   while ((chEl = (TChainElement*)next())) {
+    TFile f(chEl->GetTitle());
+
+    TTree* tree = (TTree*)f.Get("T");
+    Double_t content, bin_w;
+    tree->SetBranchAddress("content", &content);
+    tree->SetBranchAddress("bin_w", &bin_w);
+    for (int i = 0; i < tree->GetEntries(); i++) {
+      tree->GetEntry(i);
+      cout << content << " " << bin_w << endl;
+      vWidths.at(k).push_back(content);
+      vLenghs.at(k).push_back(bin_w);
+    }
+    delete tree;
+    k++;
+  }
+
+  return make_pair (vWidths, vLenghs);
+}
+
+
 
 DetectorConstruction::DetectorConstruction()
 {
@@ -60,7 +113,13 @@ DetectorConstruction::DetectorConstruction()
     absorberVisAtt = new G4VisAttributes();
     // Define Materials to be used
     DefineMaterials();
-
+    
+   // fName_g = ".../abs_sizes/good_bar/h*.root";
+    //fName_b = "../abs_sizes/bad_bar/h*.root";
+    //vWidths_good = read_sizes(fName_g).first;
+    //vLenghs_good = read_sizes(fName_g).second;
+    //vWidths_bad = read_sizes(fName_b).first;
+    //vLenghs_bad = read_sizes(fName_b).second;
     // Detector Messenger
     _src_shiftX = 0.0*mm;
     _src_shiftY = 0.0*mm;
@@ -68,7 +127,10 @@ DetectorConstruction::DetectorConstruction()
     _abs_width1 = 0.0*mm;
     _abs_width2 = 0.0*mm;
     _src_conf_id = 1;
+
     fDetectorMessenger = new DetectorMessenger(this);
+
+    // temp = RunActionPtr;
 }
 
 DetectorConstruction::~DetectorConstruction()
@@ -86,9 +148,25 @@ DetectorConstruction::~DetectorConstruction()
     delete fDetectorMessenger;
 }
 
+
+
 void DetectorConstruction::DefineMaterials()
 {
     // Define elements
+    fName_g = "/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/abs_sizes/good_bar/h*.root";
+    fName_b = "/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/abs_sizes/bad_bar/h*.root";
+
+    auto absSizes_g = read_sizes(fName_g);
+    auto absSizes_b = read_sizes(fName_b);
+    
+
+    vWidths_good = absSizes_g.first;
+    vLenghs_good = absSizes_g.second;
+
+    vWidths_bad = absSizes_b.first;
+    vLenghs_bad = absSizes_b.second;
+    
+
     G4Element* N = G4NistManager::Instance()->FindOrBuildElement("N");
     G4Element* O = G4NistManager::Instance()->FindOrBuildElement("O");
     G4Element* Si = G4NistManager::Instance()->FindOrBuildElement("Si");
@@ -235,6 +313,7 @@ void DetectorConstruction::DefineMaterials()
 
 G4VPhysicalVolume* DetectorConstruction::Construct()
 {
+    //fName_g = ".../abs_sizes/good_bar/h*.root";
     G4double world_sizeX = 40.0*cm;
     G4double world_sizeY = 20.0*cm;
     //Without fibers
@@ -502,14 +581,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     // ABSORBERS
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
-
+/*
     G4VSolid *absorber_subpart1_1 = new G4Box("Absorber", sec1_sizeX/2.0 + UA9Const::_absorber_thick, sec1_sizeY/2.0 + UA9Const::_absorber_thick, sec1_sizeZ/2.0);
     G4VSolid *absorber_subpart2_1 = new G4Box("Absorber", sec1_sizeX/2.0, sec1_sizeY/2.0, sec1_sizeZ);
     G4VSolid *absorber_subpart3_1 = new G4Box("Absorber", sec1_sizeX/2.0 - _abs_width1, (sec1_sizeY/2.0 + UA9Const::_absorber_thick)*2.0, sec1_sizeZ);
     G4VSolid *absorber_subpart4_1 = new G4Box("Absorber", (sec1_sizeX/2.0 + UA9Const::_absorber_thick)*2.0, sec1_sizeY/2.0 - _abs_width1, sec1_sizeZ);
     G4SubtractionSolid* absorber_subpart5_1 = new G4SubtractionSolid("Absorber", absorber_subpart1_1, absorber_subpart2_1,0,G4ThreeVector());
     G4SubtractionSolid* absorber_subpart6_1 = new G4SubtractionSolid("Absorber", absorber_subpart5_1, absorber_subpart3_1,0,G4ThreeVector());
-    G4SubtractionSolid* absorber_subpart7_1 = new G4SubtractionSolid("Absorber", absorber_subpart6_1, absorber_subpart4_1,0,G4ThreeVector());
+    G4Subtract ionSolid* absorber_subpart7_1 = new G4SubtractionSolid("Absorber", absorber_subpart6_1, absorber_subpart4_1,0,G4ThreeVector());
     G4VSolid *absorber_subpart8_1 = new G4Box("Absorber", sec5_sizeX, sec5_sizeY/2.0, sec5_sizeZ/2.0);
 
     G4VSolid *absorber_subpart1_2 = new G4Box("Absorber", sec1_sizeX/2.0 + UA9Const::_absorber_thick, sec1_sizeY/2.0 + UA9Const::_absorber_thick, sec1_sizeZ/2.0);
@@ -545,7 +624,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     Ta.setZ(zCopyShift);
     Tr = G4Transform3D(Ra, Ta);
     new G4PVPlacement(Tr, absorber_1.logical, "Absorber", world.logical, true, 0);
-
+*/
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     // FIBERS
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//

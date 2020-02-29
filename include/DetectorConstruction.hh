@@ -1,6 +1,5 @@
 #ifndef DetectorConstruction_H
 #define DetectorConstruction_H 1
-
 //My
 #include "VolumeStructures.hh"
 #include "DetectorMessenger.hh"
@@ -9,6 +8,24 @@
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
 #include "G4VisAttributes.hh"
+#include "RunAction.hh"
+
+#include "TFile.h"
+#include "TTree.h"
+#include "TChain.h"
+#include "TTreeReader.h"
+#include "TTreeReaderValue.h"
+#include "TString.h"
+#include "TTreeReaderArray.h"
+#include "TChainElement.h"
+#include <utility>
+#include <vector>
+
+using namespace std; 
+
+pair <vector<vector<Double_t>>, 
+      vector<vector<Double_t>>> 
+      read_sizes (const char *fName);
 
 class DetectorMessenger;
 
@@ -33,6 +50,17 @@ public:
   G4double GetSrcShiftZ()   {return _src_shiftZ;}
   G4double GetAbsWidth1()   {return _abs_width1;}
   G4double GetAbsWidth2()   {return _abs_width2;}
+
+  TString fName_g ;
+  TString fName_b ;
+
+  vector <vector<Double_t>> vWidths_good ;
+  vector <vector <Double_t>> vLenghs_good ;
+  vector <vector <Double_t>> vWidths_bad ;
+  vector <vector <Double_t>> vLenghs_bad ;
+
+ // pair <vector<vector<Double_t>>, vector<vector<Double_t>>> read_sizes ( const char *fName);
+
    
 private:
   G4int _src_conf_id;
@@ -87,6 +115,8 @@ private:
   FiberStruct fiberClad;
   FiberStruct fiberCoat;
   FiberStruct fiberBuff;
+
+  // RunAction* temp = nullptr;
 
   //LB need to be done stability tests
   //G4UserLimits* stepLimit;  // pointer to user step limits

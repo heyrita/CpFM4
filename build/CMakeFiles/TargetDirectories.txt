@@ -1,0 +1,7 @@
+/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles/install/strip.dir
+/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles/install/local.dir
+/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles/edit_cache.dir
+/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles/Exe.dir
+/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles/rebuild_cache.dir
+/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles/list_install_components.dir
+/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles/install.dir

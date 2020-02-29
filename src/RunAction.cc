@@ -9,6 +9,15 @@
 //root
 #include "TFile.h"
 #include "TTree.h"
+#include "TChain.h"
+#include "TTreeReader.h"
+#include "TTreeReaderValue.h"
+#include "TTreeReaderArray.h"
+#include "TChainElement.h"
+
+#include <vector>
+
+using namespace std; 
 
 RunAction::RunAction() : timer(0), _outputFileName("UA9.root")
   //  tree(0),
@@ -22,9 +31,58 @@ RunAction::~RunAction()
   delete timer;
 }
 
-void RunAction::BeginOfRunAction(const G4Run*)
+// pair <vector<vector<Double_t>>, 
+//       vector<vector<Double_t>>> RunAction::read_sizes (const char *fName) {
+  
+//   TChain *fCh = new TChain("T");
+//   fCh->Add(fName);
+
+//   TObjArray *fileElements = fCh->GetListOfFiles();
+//   Int_t nFiles = fileElements->GetEntries(); 
+
+//   vector<vector<Double_t>> vWidths;
+//   vWidths.resize (nFiles);
+//   vector<vector<Double_t>> vLenghs;
+//   vLenghs.resize (nFiles);
+
+//   TIter next(fileElements);
+//   TChainElement *chEl=0;
+
+//   Int_t k = 0;
+
+//    while ((chEl = (TChainElement*)next())) {
+//     TFile f(chEl->GetTitle());
+//     TTree* tree = (TTree*)f.Get("T");
+//     Double_t content, bin_w;
+//     tree->SetBranchAddress("content", &content);
+//     tree->SetBranchAddress("bin_w", &bin_w);
+//     for (int i = 0; i < tree->GetEntries(); i++) {
+//       tree->GetEntry(i);
+//       vWidths.at(k).push_back(content);
+//       vLenghs.at(k).push_back(bin_w);
+//     }
+//     delete tree;
+//     k++;
+//   }
+
+//   return make_pair (vWidths, vLenghs);
+  
+//   }
+
+
+void RunAction::BeginOfRunAction(const G4Run* aRun)
 {
   timer->Start();
+
+  //TString fName_g = ".../abs_sizes/good_bar/h*.root";
+  //TString fName_b = "../abs_sizes/bad_bar/h*.root";
+  //vector <vector <Double_t>> vWidths_good = read_sizes(fName_g).first;
+  //vector <vector <Double_t>> vLenghs_good = read_sizes(fName_g).second;
+  //vector <vector <Double_t>> vWidths_bad = read_sizes(fName_b).first;
+  //vector <vector <Double_t>> vLenghs_bad = read_sizes(fName_b).second;
+
+
+  
 
   // Histogramming
   hfile = new TFile(_outputFileName, "RECREATE", "UA9 Simulation Data", 1);
