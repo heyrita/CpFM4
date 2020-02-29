@@ -60,12 +60,21 @@ public:
   vector <vector <Double_t>> vLenghs_bad ;
   vector <G4double> abs_amount_g;
   vector <G4double> abs_amount_b;
-
+  vector < vector<G4double> > start_points;
   G4double nBrinks;
+  G4double zMy; 
 
-  vector <G4VSolid*> absorbers_vec1;
-  vector <G4LogicalVolume*> Labsorbers_vec1;
- // pair <vector<vector<Double_t>>, vector<vector<Double_t>>> read_sizes ( const char *fName);
+  ///Bar 1 ///
+  vector < vector <G4VSolid*>> Sabsorbers_vec1;
+  vector <vector <G4LogicalVolume*> > Labsorbers_vec1;
+ 
+  ///Bar 2
+  vector <vector <G4VSolid*> >Sabsorbers_vec2;
+  vector < vector <G4LogicalVolume*>> Labsorbers_vec2;
+
+  
+
+ 
 
    
 private:
