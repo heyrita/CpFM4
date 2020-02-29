@@ -606,14 +606,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     // ABSORBERS
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
-    //G4VSolid *test_box_solid = new G4Box ("test_box", 1*mm, UA9Const::_absorber_thick, 1*mm);
-    //Ta.setX(-sec1_sizeX/2);
-    //Ta.setY(sec1_sizeY/2);
-    //Ta.setZ(-sec1_sizeZ/2+(1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX)); 
-    //Tr = G4Transform3D(Ra, Ta);
-    //G4LogicalVolume *test_box_logical = new G4LogicalVolume(test_box_solid, fiberCorr.material, "test_box");
-
-    //new G4PVPlacement(Tr, test_box_logical, "test_box", world.logical, true, 0);
+    
     Sabsorbers_vec1.resize(8);
     Labsorbers_vec1.resize(8);
     for (Int_t i = 0; i< nBrinks; i++){
