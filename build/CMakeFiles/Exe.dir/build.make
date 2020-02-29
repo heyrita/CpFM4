@@ -60,197 +60,197 @@ include CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/main.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/main.cc.o: ../main.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Exe.dir/main.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/main.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/main.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/main.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/main.cc
 
 CMakeFiles/Exe.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/main.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/main.cc > CMakeFiles/Exe.dir/main.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/main.cc > CMakeFiles/Exe.dir/main.cc.i
 
 CMakeFiles/Exe.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/main.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/main.cc -o CMakeFiles/Exe.dir/main.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/main.cc -o CMakeFiles/Exe.dir/main.cc.s
 
 CMakeFiles/Exe.dir/src/DetectorConstruction.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/DetectorConstruction.cc.o: ../src/DetectorConstruction.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Exe.dir/src/DetectorConstruction.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/DetectorConstruction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorConstruction.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/DetectorConstruction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorConstruction.cc
 
 CMakeFiles/Exe.dir/src/DetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/DetectorConstruction.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorConstruction.cc > CMakeFiles/Exe.dir/src/DetectorConstruction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorConstruction.cc > CMakeFiles/Exe.dir/src/DetectorConstruction.cc.i
 
 CMakeFiles/Exe.dir/src/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/DetectorConstruction.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorConstruction.cc -o CMakeFiles/Exe.dir/src/DetectorConstruction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorConstruction.cc -o CMakeFiles/Exe.dir/src/DetectorConstruction.cc.s
 
 CMakeFiles/Exe.dir/src/DetectorMessenger.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/DetectorMessenger.cc.o: ../src/DetectorMessenger.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Exe.dir/src/DetectorMessenger.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/DetectorMessenger.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorMessenger.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/DetectorMessenger.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorMessenger.cc
 
 CMakeFiles/Exe.dir/src/DetectorMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/DetectorMessenger.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorMessenger.cc > CMakeFiles/Exe.dir/src/DetectorMessenger.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorMessenger.cc > CMakeFiles/Exe.dir/src/DetectorMessenger.cc.i
 
 CMakeFiles/Exe.dir/src/DetectorMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/DetectorMessenger.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorMessenger.cc -o CMakeFiles/Exe.dir/src/DetectorMessenger.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/DetectorMessenger.cc -o CMakeFiles/Exe.dir/src/DetectorMessenger.cc.s
 
 CMakeFiles/Exe.dir/src/EventAction.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/EventAction.cc.o: ../src/EventAction.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Exe.dir/src/EventAction.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/EventAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/EventAction.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/EventAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/EventAction.cc
 
 CMakeFiles/Exe.dir/src/EventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/EventAction.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/EventAction.cc > CMakeFiles/Exe.dir/src/EventAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/EventAction.cc > CMakeFiles/Exe.dir/src/EventAction.cc.i
 
 CMakeFiles/Exe.dir/src/EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/EventAction.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/EventAction.cc -o CMakeFiles/Exe.dir/src/EventAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/EventAction.cc -o CMakeFiles/Exe.dir/src/EventAction.cc.s
 
 CMakeFiles/Exe.dir/src/HitMy.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/HitMy.cc.o: ../src/HitMy.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Exe.dir/src/HitMy.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/HitMy.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/HitMy.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/HitMy.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/HitMy.cc
 
 CMakeFiles/Exe.dir/src/HitMy.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/HitMy.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/HitMy.cc > CMakeFiles/Exe.dir/src/HitMy.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/HitMy.cc > CMakeFiles/Exe.dir/src/HitMy.cc.i
 
 CMakeFiles/Exe.dir/src/HitMy.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/HitMy.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/HitMy.cc -o CMakeFiles/Exe.dir/src/HitMy.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/HitMy.cc -o CMakeFiles/Exe.dir/src/HitMy.cc.s
 
 CMakeFiles/Exe.dir/src/PhysicsList.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/PhysicsList.cc.o: ../src/PhysicsList.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Exe.dir/src/PhysicsList.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/PhysicsList.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PhysicsList.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/PhysicsList.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PhysicsList.cc
 
 CMakeFiles/Exe.dir/src/PhysicsList.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/PhysicsList.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PhysicsList.cc > CMakeFiles/Exe.dir/src/PhysicsList.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PhysicsList.cc > CMakeFiles/Exe.dir/src/PhysicsList.cc.i
 
 CMakeFiles/Exe.dir/src/PhysicsList.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/PhysicsList.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PhysicsList.cc -o CMakeFiles/Exe.dir/src/PhysicsList.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PhysicsList.cc -o CMakeFiles/Exe.dir/src/PhysicsList.cc.s
 
 CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.o: ../src/PrimaryGeneratorAction.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PrimaryGeneratorAction.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PrimaryGeneratorAction.cc > CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PrimaryGeneratorAction.cc > CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.i
 
 CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PrimaryGeneratorAction.cc -o CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/PrimaryGeneratorAction.cc -o CMakeFiles/Exe.dir/src/PrimaryGeneratorAction.cc.s
 
 CMakeFiles/Exe.dir/src/RunAction.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/RunAction.cc.o: ../src/RunAction.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Exe.dir/src/RunAction.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/RunAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/RunAction.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/RunAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/RunAction.cc
 
 CMakeFiles/Exe.dir/src/RunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/RunAction.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/RunAction.cc > CMakeFiles/Exe.dir/src/RunAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/RunAction.cc > CMakeFiles/Exe.dir/src/RunAction.cc.i
 
 CMakeFiles/Exe.dir/src/RunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/RunAction.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/RunAction.cc -o CMakeFiles/Exe.dir/src/RunAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/RunAction.cc -o CMakeFiles/Exe.dir/src/RunAction.cc.s
 
 CMakeFiles/Exe.dir/src/SensitiveDetector.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/SensitiveDetector.cc.o: ../src/SensitiveDetector.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Exe.dir/src/SensitiveDetector.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/SensitiveDetector.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SensitiveDetector.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/SensitiveDetector.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SensitiveDetector.cc
 
 CMakeFiles/Exe.dir/src/SensitiveDetector.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/SensitiveDetector.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SensitiveDetector.cc > CMakeFiles/Exe.dir/src/SensitiveDetector.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SensitiveDetector.cc > CMakeFiles/Exe.dir/src/SensitiveDetector.cc.i
 
 CMakeFiles/Exe.dir/src/SensitiveDetector.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/SensitiveDetector.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SensitiveDetector.cc -o CMakeFiles/Exe.dir/src/SensitiveDetector.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SensitiveDetector.cc -o CMakeFiles/Exe.dir/src/SensitiveDetector.cc.s
 
 CMakeFiles/Exe.dir/src/StackingAction.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/StackingAction.cc.o: ../src/StackingAction.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Exe.dir/src/StackingAction.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/StackingAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/StackingAction.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/StackingAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/StackingAction.cc
 
 CMakeFiles/Exe.dir/src/StackingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/StackingAction.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/StackingAction.cc > CMakeFiles/Exe.dir/src/StackingAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/StackingAction.cc > CMakeFiles/Exe.dir/src/StackingAction.cc.i
 
 CMakeFiles/Exe.dir/src/StackingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/StackingAction.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/StackingAction.cc -o CMakeFiles/Exe.dir/src/StackingAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/StackingAction.cc -o CMakeFiles/Exe.dir/src/StackingAction.cc.s
 
 CMakeFiles/Exe.dir/src/SteppingAction.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/SteppingAction.cc.o: ../src/SteppingAction.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Exe.dir/src/SteppingAction.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/SteppingAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingAction.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/SteppingAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingAction.cc
 
 CMakeFiles/Exe.dir/src/SteppingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/SteppingAction.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingAction.cc > CMakeFiles/Exe.dir/src/SteppingAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingAction.cc > CMakeFiles/Exe.dir/src/SteppingAction.cc.i
 
 CMakeFiles/Exe.dir/src/SteppingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/SteppingAction.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingAction.cc -o CMakeFiles/Exe.dir/src/SteppingAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingAction.cc -o CMakeFiles/Exe.dir/src/SteppingAction.cc.s
 
 CMakeFiles/Exe.dir/src/SteppingMessenger.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/SteppingMessenger.cc.o: ../src/SteppingMessenger.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Exe.dir/src/SteppingMessenger.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/SteppingMessenger.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingMessenger.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/SteppingMessenger.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingMessenger.cc
 
 CMakeFiles/Exe.dir/src/SteppingMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/SteppingMessenger.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingMessenger.cc > CMakeFiles/Exe.dir/src/SteppingMessenger.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingMessenger.cc > CMakeFiles/Exe.dir/src/SteppingMessenger.cc.i
 
 CMakeFiles/Exe.dir/src/SteppingMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/SteppingMessenger.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingMessenger.cc -o CMakeFiles/Exe.dir/src/SteppingMessenger.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingMessenger.cc -o CMakeFiles/Exe.dir/src/SteppingMessenger.cc.s
 
 CMakeFiles/Exe.dir/src/SteppingVerbose.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/SteppingVerbose.cc.o: ../src/SteppingVerbose.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Exe.dir/src/SteppingVerbose.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/SteppingVerbose.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingVerbose.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/SteppingVerbose.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingVerbose.cc
 
 CMakeFiles/Exe.dir/src/SteppingVerbose.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/SteppingVerbose.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingVerbose.cc > CMakeFiles/Exe.dir/src/SteppingVerbose.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingVerbose.cc > CMakeFiles/Exe.dir/src/SteppingVerbose.cc.i
 
 CMakeFiles/Exe.dir/src/SteppingVerbose.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/SteppingVerbose.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingVerbose.cc -o CMakeFiles/Exe.dir/src/SteppingVerbose.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/SteppingVerbose.cc -o CMakeFiles/Exe.dir/src/SteppingVerbose.cc.s
 
 CMakeFiles/Exe.dir/src/TrackInformation.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/TrackInformation.cc.o: ../src/TrackInformation.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Exe.dir/src/TrackInformation.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/TrackInformation.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackInformation.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/TrackInformation.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackInformation.cc
 
 CMakeFiles/Exe.dir/src/TrackInformation.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/TrackInformation.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackInformation.cc > CMakeFiles/Exe.dir/src/TrackInformation.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackInformation.cc > CMakeFiles/Exe.dir/src/TrackInformation.cc.i
 
 CMakeFiles/Exe.dir/src/TrackInformation.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/TrackInformation.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackInformation.cc -o CMakeFiles/Exe.dir/src/TrackInformation.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackInformation.cc -o CMakeFiles/Exe.dir/src/TrackInformation.cc.s
 
 CMakeFiles/Exe.dir/src/TrackingAction.cc.o: CMakeFiles/Exe.dir/flags.make
 CMakeFiles/Exe.dir/src/TrackingAction.cc.o: ../src/TrackingAction.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Exe.dir/src/TrackingAction.cc.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/TrackingAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackingAction.cc
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Exe.dir/src/TrackingAction.cc.o -c /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackingAction.cc
 
 CMakeFiles/Exe.dir/src/TrackingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Exe.dir/src/TrackingAction.cc.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackingAction.cc > CMakeFiles/Exe.dir/src/TrackingAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackingAction.cc > CMakeFiles/Exe.dir/src/TrackingAction.cc.i
 
 CMakeFiles/Exe.dir/src/TrackingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Exe.dir/src/TrackingAction.cc.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackingAction.cc -o CMakeFiles/Exe.dir/src/TrackingAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/src/TrackingAction.cc -o CMakeFiles/Exe.dir/src/TrackingAction.cc.s
 
 # Object files for target Exe
 Exe_OBJECTS = \

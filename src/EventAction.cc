@@ -133,8 +133,8 @@ void EventAction::EndOfEventAction(const G4Event* event)
     runAction->_src_posX      = _detector->GetSrcShiftX();
     runAction->_src_posY      = _detector->GetSrcShiftY();
     runAction->_src_posZ      = _detector->GetSrcShiftZ();
-    runAction->_abs_width1     = _detector->GetAbsWidth1();
-    runAction->_abs_width2     = _detector->GetAbsWidth2();
+    //runAction->_abs_width1     = _detector->GetAbsWidth1();
+    //runAction->_abs_width2     = _detector->GetAbsWidth2();
     runAction->_prob1     = _steppingAction->GetProb1();
     runAction->_prob2     = _steppingAction->GetProb2();
 

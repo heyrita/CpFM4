@@ -27,8 +27,8 @@ class DetectorMessenger: public G4UImessenger
     G4UIcmdWithADoubleAndUnit*  _src_shiftX_Cmd;
     G4UIcmdWithADoubleAndUnit*  _src_shiftY_Cmd;
     G4UIcmdWithADoubleAndUnit*  _src_shiftZ_Cmd;
-    G4UIcmdWithADoubleAndUnit*  _abs_width1_Cmd;
-    G4UIcmdWithADoubleAndUnit*  _abs_width2_Cmd;
+   // G4UIcmdWithADoubleAndUnit*  _abs_width1_Cmd;
+   // G4UIcmdWithADoubleAndUnit*  _abs_width2_Cmd;
     G4UIcmdWithoutParameter*    _modify_Cmd;
 };
 

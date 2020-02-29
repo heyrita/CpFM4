@@ -167,8 +167,8 @@ void RunAction::BeginOfRunAction(const G4Run* aRun)
   tree->Branch("src_posX",  &_src_posX, "src_posX/D");
   tree->Branch("src_posY",  &_src_posY, "src_posY/D");
   tree->Branch("src_posZ",  &_src_posZ, "src_posZ/D");
-  tree->Branch("abs_width1",  &_abs_width1, "abs_width1/D");
-  tree->Branch("abs_width2",  &_abs_width2, "abs_width2/D");
+  //tree->Branch("abs_width1",  &_abs_width1, "abs_width1/D");
+  //tree->Branch("abs_width2",  &_abs_width2, "abs_width2/D");
   tree->Branch("prob1",  &_prob1, "prob1/D");
   tree->Branch("prob2",  &_prob2, "prob2/D");
 

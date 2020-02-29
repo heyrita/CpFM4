@@ -76,6 +76,7 @@ pair <vector<vector<Double_t>>,
   TChainElement *chEl=0;
 
   Int_t k = 0;
+  vector <Double_t> sum ; 
 
    while ((chEl = (TChainElement*)next())) {
     TFile f(chEl->GetTitle());
@@ -86,9 +87,10 @@ pair <vector<vector<Double_t>>,
     tree->SetBranchAddress("bin_w", &bin_w);
     for (int i = 0; i < tree->GetEntries(); i++) {
       tree->GetEntry(i);
-      cout << content << " " << bin_w << endl;
+      //cout << content << " " << bin_w << endl;
       vWidths.at(k).push_back(content);
       vLenghs.at(k).push_back(bin_w);
+      
     }
     delete tree;
     k++;
@@ -110,7 +112,7 @@ DetectorConstruction::DetectorConstruction()
     viewportVisAtt = new G4VisAttributes();
     sourceShieldVisAtt1 = new G4VisAttributes();
     sourceShieldVisAtt2 = new G4VisAttributes();
-    absorberVisAtt = new G4VisAttributes();
+    //absorberVisAtt = new G4VisAttributes();
     // Define Materials to be used
     DefineMaterials();
     
@@ -162,9 +164,32 @@ void DetectorConstruction::DefineMaterials()
 
     vWidths_good = absSizes_g.first;
     vLenghs_good = absSizes_g.second;
-
     vWidths_bad = absSizes_b.first;
     vLenghs_bad = absSizes_b.second;
+
+    
+    nBrinks = vWidths_good.size();
+    //for (Int_t i =0; i<nBrinks; i++)
+   // cout << vWidths_good.at(i).size() << endl ;
+    
+    //abs_amount_b.resize(nBrinks);
+    //abs_amount_g.resize(nBrinks);
+    G4double m,n =0 ;
+
+    for (Int_t i =0; i< nBrinks; i++) {
+        m = vWidths_good.at(i).size();
+        n = vWidths_bad.at(i).size();
+        cout << m << " " << n << endl;
+        abs_amount_g.push_back(m);
+        abs_amount_b.push_back(n);
+
+    }
+
+    for (Int_t i =0; i< nBrinks; i++)
+        cout << abs_amount_g.at(i) << endl ;
+    
+
+    
     
 
     G4Element* N = G4NistManager::Instance()->FindOrBuildElement("N");
@@ -581,6 +606,41 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     // ABSORBERS
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
+    //G4VSolid *test_box_solid = new G4Box ("test_box", 1*mm, UA9Const::_absorber_thick, 1*mm);
+    //Ta.setX(-sec1_sizeX/2);
+    //Ta.setY(sec1_sizeY/2);
+    //Ta.setZ(-sec1_sizeZ/2+(1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX)); 
+    //Tr = G4Transform3D(Ra, Ta);
+    //G4LogicalVolume *test_box_logical = new G4LogicalVolume(test_box_solid, fiberCorr.material, "test_box");
+
+    //new G4PVPlacement(Tr, test_box_logical, "test_box", world.logical, true, 0);
+
+    G4double zMy = -sec1_sizeZ/2+(1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX); 
+
+    absorbers_vec1.resize(abs_amount_b.at(0));
+    Labsorbers_vec1.resize(abs_amount_b.at(0));
+
+    
+    Ta.setY(sec1_sizeY/2+UA9Const::_absorber_thick/2);
+    G4double shift = 0;
+    for (Int_t i = 0; i< abs_amount_b.at(0); i++) {
+        if(i == 0){
+            zMy += (vLenghs_bad[0].at(i)/2)*mm;
+        }
+        else{
+            shift =  (vLenghs_bad[0].at(i)/2) + vLenghs_bad[0].at(i - 1)/2;
+            zMy += shift*mm;
+        }
+        absorbers_vec1.at(i) = new G4Box ("abs_test", (vWidths_bad[0].at(i)/2)*mm, UA9Const::_absorber_thick, (vLenghs_bad[0].at(i)/2)*mm);
+        Labsorbers_vec1.at(i) = new G4LogicalVolume (absorbers_vec1.at(i), fiberCorr.material, "abs_test"); 
+        Ta.setX(-sec1_sizeX/2+(vWidths_bad[0].at(i)/2)*mm);
+        Ta.setZ(zMy); 
+        Tr = G4Transform3D(Ra, Ta);
+        new G4PVPlacement (Tr,  Labsorbers_vec1.at(i), "abs_test", world.logical, true, 0);
+    }
+
+
+
 /*
     G4VSolid *absorber_subpart1_1 = new G4Box("Absorber", sec1_sizeX/2.0 + UA9Const::_absorber_thick, sec1_sizeY/2.0 + UA9Const::_absorber_thick, sec1_sizeZ/2.0);
     G4VSolid *absorber_subpart2_1 = new G4Box("Absorber", sec1_sizeX/2.0, sec1_sizeY/2.0, sec1_sizeZ);
@@ -719,8 +779,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     sourceShieldVisAtt1->SetVisibility(true);
     sourceShieldVisAtt2->SetColor(brown);
     sourceShieldVisAtt2->SetVisibility(true);
-    absorberVisAtt->SetColor(green);
-    absorberVisAtt->SetVisibility(true);
+    //absorberVisAtt->SetColor(green);
+    //absorberVisAtt->SetVisibility(true);
 
     sec1.logical->SetVisAttributes(quartzVisAtt);
     resultlogical->SetVisAttributes(quartzVisAtt);
@@ -736,8 +796,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     source_shield1.logical->SetVisAttributes(sourceShieldVisAtt1);
     source_shield2.logical->SetVisAttributes(sourceShieldVisAtt2);    
 
-    absorber_1.logical->SetVisAttributes(absorberVisAtt);
-    absorber_2.logical->SetVisAttributes(absorberVisAtt);
+    //absorber_1.logical->SetVisAttributes(absorberVisAtt);
+   // absorber_2.logical->SetVisAttributes(absorberVisAtt);
 
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     // OPTICAL BORDERS

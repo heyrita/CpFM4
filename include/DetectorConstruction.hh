@@ -58,7 +58,13 @@ public:
   vector <vector <Double_t>> vLenghs_good ;
   vector <vector <Double_t>> vWidths_bad ;
   vector <vector <Double_t>> vLenghs_bad ;
+  vector <G4double> abs_amount_g;
+  vector <G4double> abs_amount_b;
 
+  G4double nBrinks;
+
+  vector <G4VSolid*> absorbers_vec1;
+  vector <G4LogicalVolume*> Labsorbers_vec1;
  // pair <vector<vector<Double_t>>, vector<vector<Double_t>>> read_sizes ( const char *fName);
 
    
@@ -104,6 +110,7 @@ private:
   SecStruct source_shield2;
   SecStruct absorber_1;
   SecStruct absorber_2;
+  vector <SecStruct> absorbers; 
 
   Abs1Struct abs1;
   Abs1Struct abs21;

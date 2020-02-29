@@ -32,17 +32,17 @@ DetectorMessenger::DetectorMessenger(DetectorConstruction * Detector):G4UImessen
     _src_shiftZ_Cmd->SetUnitCategory("Length");
     _src_shiftZ_Cmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
-    _abs_width1_Cmd = new G4UIcmdWithADoubleAndUnit("/cpfm/abs/Width1",this);
-    _abs_width1_Cmd->SetGuidance("Width of the absorber for bar 1");
-    _abs_width1_Cmd->SetParameterName("Abs_width1",false);
-    _abs_width1_Cmd->SetUnitCategory("Length");
-    _abs_width1_Cmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+   // _abs_width1_Cmd = new G4UIcmdWithADoubleAndUnit("/cpfm/abs/Width1",this);
+   // _abs_width1_Cmd->SetGuidance("Width of the absorber for bar 1");
+   // _abs_width1_Cmd->SetParameterName("Abs_width1",false);
+   // _abs_width1_Cmd->SetUnitCategory("Length");
+   // _abs_width1_Cmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
-    _abs_width2_Cmd = new G4UIcmdWithADoubleAndUnit("/cpfm/abs/Width2",this);
-    _abs_width2_Cmd->SetGuidance("Width of the absorber for bar 2");
-    _abs_width2_Cmd->SetParameterName("Abs_width2",false);
-    _abs_width2_Cmd->SetUnitCategory("Length");
-    _abs_width2_Cmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+   // _abs_width2_Cmd = new G4UIcmdWithADoubleAndUnit("/cpfm/abs/Width2",this);
+   // _abs_width2_Cmd->SetGuidance("Width of the absorber for bar 2");
+   // _abs_width2_Cmd->SetParameterName("Abs_width2",false);
+   // _abs_width2_Cmd->SetUnitCategory("Length");
+   // _abs_width2_Cmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
     _modify_Cmd = new G4UIcmdWithoutParameter("/cpfm/ModifyGeometry",this);
     _modify_Cmd->SetGuidance("Modify Geometry");
@@ -55,8 +55,8 @@ DetectorMessenger::~DetectorMessenger()
     delete _src_shiftX_Cmd;
     delete _src_shiftY_Cmd;
     delete _src_shiftZ_Cmd;
-    delete _abs_width1_Cmd;
-    delete _abs_width2_Cmd;
+   // delete _abs_width1_Cmd;
+//delete _abs_width2_Cmd;
     delete _modify_Cmd;
 }
 
@@ -78,14 +78,14 @@ void DetectorMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
     {
         fDetector->SetSrcShiftZ((G4double)_src_shiftZ_Cmd->GetNewDoubleValue(newValue));
     }
-    if( command == _abs_width1_Cmd )
-    {
-        fDetector->SetAbsWidth1((G4double)_abs_width1_Cmd->GetNewDoubleValue(newValue));
-    }
-    if( command == _abs_width2_Cmd )
-    {
-        fDetector->SetAbsWidth2((G4double)_abs_width2_Cmd->GetNewDoubleValue(newValue));
-    }
+  //  if( command == _abs_width1_Cmd )
+  //  {
+  //      fDetector->SetAbsWidth1((G4double)_abs_width1_Cmd->GetNewDoubleValue(newValue));
+  //  }
+  //  if( command == _abs_width2_Cmd )
+  //  {
+  //      fDetector->SetAbsWidth2((G4double)_abs_width2_Cmd->GetNewDoubleValue(newValue));
+  //  }
     if( command == _modify_Cmd )
     {
         fDetector->ModifyGeometry();
