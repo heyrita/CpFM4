@@ -60,7 +60,8 @@ public:
   vector <vector <Double_t>> vLenghs_bad ;
   vector <G4double> abs_amount_g;
   vector <G4double> abs_amount_b;
-  vector < vector<G4double> > start_points;
+  vector < vector<G4double> > start_points_1;
+  vector < vector<G4double> > start_points_2;
   G4double nBrinks;
   G4double zMy; 
 

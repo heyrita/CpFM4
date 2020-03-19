@@ -6,6 +6,7 @@
 /run/initialize
 
 /vis/open HepRepFile
+#/vis/open OGL
 /vis/scene/create
 /vis/scene/add/volume
 /vis/sceneHandler/attach
@@ -24,8 +25,8 @@
 /cpfm/src/SetSrcShiftX 4.5 mm
 /cpfm/src/SetSrcShiftY 0.0 mm
 /cpfm/src/SetSrcShiftZ 399.0 mm
-/cpfm/abs/Width1 0.1 mm
-/cpfm/abs/Width2 0.2 mm
+#/cpfm/abs/Width1 0.1 mm
+#/cpfm/abs/Width2 0.2 mm
 /cpfm/step/Prob1 1.0
 /cpfm/step/Prob2 1.0
 /cpfm/ModifyGeometry

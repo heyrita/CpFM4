@@ -607,6 +607,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     // ABSORBERS
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     
+    /// Bar 1 BAD ///
+
     Sabsorbers_vec1.resize(8);
     Labsorbers_vec1.resize(8);
     for (Int_t i = 0; i< nBrinks; i++){
@@ -616,33 +618,33 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     G4double shift = 0;
    
-    start_points.resize(8);
+    start_points_1.resize(8);
     for(int i = 0; i < 8; i++){
-        start_points.at(i).resize(3);
+        start_points_1.at(i).resize(3);
     }
 
-    start_points[2] = {-sec1_sizeX/2, 
+    start_points_1[2] = {-sec1_sizeX/2, 
                         sec1_sizeY/2+UA9Const::_absorber_thick/2, 
                         -sec1_sizeZ/2+1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX };
-    start_points[7] = {-sec1_sizeX/2, 
+    start_points_1[7] = {-sec1_sizeX/2, 
                         -sec1_sizeY/2-UA9Const::_absorber_thick/2, 
                         -sec1_sizeZ/2+1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX };
-    start_points[6] = {sec1_sizeX/2, 
+    start_points_1[6] = {sec1_sizeX/2, 
                         -sec1_sizeY/2-UA9Const::_absorber_thick/2, 
                         -sec1_sizeZ/2};
-    start_points[3] = {sec1_sizeX/2, 
+    start_points_1[3] = {sec1_sizeX/2, 
                         +sec1_sizeY/2+UA9Const::_absorber_thick/2, 
                         -sec1_sizeZ/2};
-    start_points[0] = {-sec1_sizeX/2-UA9Const::_absorber_thick/2,
+    start_points_1[0] = {-sec1_sizeX/2-UA9Const::_absorber_thick/2,
                         sec1_sizeY/2,
                         -sec1_sizeZ/2+1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX };
-    start_points[5] = {sec1_sizeX/2+UA9Const::_absorber_thick/2,
+    start_points_1[5] = {sec1_sizeX/2+UA9Const::_absorber_thick/2,
                         sec1_sizeY/2,
                         -sec1_sizeZ/2};
-    start_points[4] = {sec1_sizeX/2+UA9Const::_absorber_thick/2,
+    start_points_1[4] = {sec1_sizeX/2+UA9Const::_absorber_thick/2,
                         -sec1_sizeY/2,
                         -sec1_sizeZ/2};
-    start_points[1] = {-sec1_sizeX/2-UA9Const::_absorber_thick/2,
+    start_points_1[1] = {-sec1_sizeX/2-UA9Const::_absorber_thick/2,
                         -sec1_sizeY/2,
                         -sec1_sizeZ/2+ 1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX};
 
@@ -652,36 +654,118 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
         for(int j = 0; j < abs_amount_b[i]; j++){
             //cout << j << endl;
             if(j == 0){
-            zMy = start_points[i][2] + (vLenghs_bad[i].at(j)/2)*mm;
+            zMy = start_points_1[i][2] + (vLenghs_bad[i].at(j)/2)*mm;
             }
             else{
                 shift = (vLenghs_bad[i].at(j)/2) + vLenghs_bad[i].at(j-1)/2;
                 zMy += shift*mm;
             }
-            if(abs(start_points[i][0]) == sec1_sizeX/2+UA9Const::_absorber_thick/2){
-                if(start_points[i][1] < 0){
-                    Ta.setY(start_points[i][1] + vWidths_bad[i][j]/2);
+            if(abs(start_points_1[i][0]) == sec1_sizeX/2+UA9Const::_absorber_thick/2){
+                if(start_points_1[i][1] < 0){
+                    Ta.setY(start_points_1[i][1] + vWidths_bad[i][j]/2);
                 }
                 else{
-                    Ta.setY(start_points[i][1] - vWidths_bad[i][j]/2);
+                    Ta.setY(start_points_1[i][1] - vWidths_bad[i][j]/2);
                 }
-                Ta.setX(start_points[i][0]);
-                Sabsorbers_vec1[i].at(j) = new G4Box ("abs", UA9Const::_absorber_thick, (vWidths_bad[i].at(j)/2+0.000001)*mm , (vLenghs_bad[i].at(j)/2)*mm );
+                Ta.setX(start_points_1[i][0]);
+                Sabsorbers_vec1[i].at(j) = new G4Box ("abs", UA9Const::_absorber_thick/2, (vWidths_bad[i].at(j)/2+0.000001)*mm , (vLenghs_bad[i].at(j)/2)*mm );
             }
             else{
-                if(start_points[i][0] < 0){
-                    Ta.setX(start_points[i][0] + vWidths_bad[i][j]/2);    
+                if(start_points_1[i][0] < 0){
+                    Ta.setX(start_points_1[i][0] + vWidths_bad[i][j]/2);    
                 }
                 else{
-                    Ta.setX(start_points[i][0] - vWidths_bad[i][j]/2);
+                    Ta.setX(start_points_1[i][0] - vWidths_bad[i][j]/2);
                 }
-                Ta.setY(start_points[i][1]);
-                Sabsorbers_vec1[i].at(j) = new G4Box ("abs", (vWidths_bad[i].at(j)/2+0.000001)*mm, UA9Const::_absorber_thick, (vLenghs_bad[i].at(j)/2)*mm);
+                Ta.setY(start_points_1[i][1]);
+                Sabsorbers_vec1[i].at(j) = new G4Box ("abs", (vWidths_bad[i].at(j)/2+0.000001)*mm, UA9Const::_absorber_thick/2, (vLenghs_bad[i].at(j)/2)*mm);
             }
             Labsorbers_vec1[i].at(j) = new G4LogicalVolume (Sabsorbers_vec1[i].at(j), fiberCorr.material, "abs"); 
             Ta.setZ(zMy); 
             Tr = G4Transform3D(Ra, Ta);
             new G4PVPlacement (Tr, Labsorbers_vec1[i].at(j), "abs", world.logical, true, 0);
+
+        }   
+    }
+
+    /// Bar 2 GOOD ///
+
+    Sabsorbers_vec2.resize(8);
+    Labsorbers_vec2.resize(8);
+    for (Int_t i = 0; i< nBrinks; i++){
+    Sabsorbers_vec2.at(i).resize(abs_amount_g.at(i));
+    Labsorbers_vec2.at(i).resize(abs_amount_g.at(i));
+    }   
+
+     shift = 0;
+   
+    start_points_2.resize(8);
+    for(int i = 0; i < 8; i++){
+        start_points_2.at(i).resize(3);
+    }
+
+    start_points_2[2] = {-sec1_sizeX/2 + xCopyShift, 
+                        sec1_sizeY/2+UA9Const::_absorber_thick/2 , 
+                        -sec1_sizeZ/2+1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX + zCopyShift};
+    start_points_2[7] = {-sec1_sizeX/2 + xCopyShift, 
+                        -sec1_sizeY/2-UA9Const::_absorber_thick/2, 
+                        -sec1_sizeZ/2+1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX +zCopyShift};
+    start_points_2[6] = {sec1_sizeX/2 + xCopyShift, 
+                        -sec1_sizeY/2-UA9Const::_absorber_thick/2, 
+                        -sec1_sizeZ/2 +zCopyShift};
+    start_points_2[3] = {sec1_sizeX/2 + xCopyShift, 
+                        +sec1_sizeY/2+UA9Const::_absorber_thick/2, 
+                        -sec1_sizeZ/2 + zCopyShift};
+    start_points_2[0] = {-sec1_sizeX/2-UA9Const::_absorber_thick/2 +xCopyShift,
+                        sec1_sizeY/2,
+                        -sec1_sizeZ/2+1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX + zCopyShift };
+    start_points_2[5] = {sec1_sizeX/2+UA9Const::_absorber_thick/2 + xCopyShift,
+                        sec1_sizeY/2,
+                        -sec1_sizeZ/2 + zCopyShift};
+    start_points_2[4] = {sec1_sizeX/2+UA9Const::_absorber_thick/2 + xCopyShift,
+                        -sec1_sizeY/2,
+                        -sec1_sizeZ/2 + zCopyShift};
+    start_points_2[1] = {-sec1_sizeX/2-UA9Const::_absorber_thick/2 + xCopyShift,
+                        -sec1_sizeY/2,
+                        -sec1_sizeZ/2+ 1/TMath::Tan(UA9Const::angleDet)*sec1_sizeX + zCopyShift};
+
+    std::cout << "Start" << std::endl;
+    for(int i = 0; i < 8; i++){
+        //cout << i << "tuuut " << endl;
+        for(int j = 0; j < abs_amount_g[i]; j++){
+            //cout << j << endl;
+            if(j == 0){
+            zMy = start_points_2[i][2] + (vLenghs_good[i].at(j)/2)*mm;
+            }
+            else{
+                shift = (vLenghs_good[i].at(j)/2) + vLenghs_good[i].at(j-1)/2;
+                zMy += shift*mm;
+            }
+            if(start_points_2[i][0] == sec1_sizeX/2+UA9Const::_absorber_thick/2 + xCopyShift || 
+                start_points_2[i][0] == -sec1_sizeX/2 -UA9Const::_absorber_thick/2 + xCopyShift) {
+                if(start_points_2[i][1] < 0){
+                    Ta.setY(start_points_2[i][1] + vWidths_good[i][j]/2);
+                }
+                else{
+                    Ta.setY(start_points_2[i][1] - vWidths_good[i][j]/2);
+                }
+                Ta.setX(start_points_2[i][0]);
+                Sabsorbers_vec2[i].at(j) = new G4Box ("abs", UA9Const::_absorber_thick/2, (vWidths_good[i].at(j)/2+0.000001)*mm , (vLenghs_good[i].at(j)/2)*mm );
+            }
+            else{
+                if(start_points_2[i][0] == -sec1_sizeX/2 + xCopyShift){
+                    Ta.setX(start_points_2[i][0] + vWidths_good[i][j]/2);    
+                }
+                else{
+                    Ta.setX(start_points_2[i][0] - vWidths_good[i][j]/2);
+                }
+                Ta.setY(start_points_2[i][1]);
+                Sabsorbers_vec2[i].at(j) = new G4Box ("abs", (vWidths_good[i].at(j)/2+0.000001)*mm, UA9Const::_absorber_thick/2, (vLenghs_good[i].at(j)/2)*mm);
+            }
+            Labsorbers_vec2[i].at(j) = new G4LogicalVolume (Sabsorbers_vec2[i].at(j), fiberCorr.material, "abs"); 
+            Ta.setZ(zMy); 
+            Tr = G4Transform3D(Ra, Ta);
+            new G4PVPlacement (Tr, Labsorbers_vec2[i].at(j), "abs", world.logical, true, 0);
 
         }
     }

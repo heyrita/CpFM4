@@ -20,3 +20,10 @@
 /cpfm/src/SetSrcShiftX 4.5 mm
 /cpfm/src/SetSrcShiftY 0.0 mm
 /cpfm/src/SetSrcShiftZ 399.0 mm
+/cpfm/step/Prob1 1.0
+/cpfm/step/Prob2 1.0
+/cpfm/ModifyGeometry
+/vis/scene/notifyHandlers scene-0
+/run/beamOn 1
+/vis/scene/notifyHandlers scene-0
+/vis/viewer/update
