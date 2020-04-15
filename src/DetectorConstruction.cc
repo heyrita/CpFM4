@@ -428,6 +428,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4ThreeVector Ta;
     G4Transform3D Tr;
 
+    G4ThreeVector TaSubtraction;
+    G4Transform3D TrSubtraction;
+
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     // WORLD
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
@@ -582,9 +585,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     Ta.setY(0.0);
     Ta.setZ(-sec1_sizeZ/2.0 - zNew);
     Ra.rotateY(alphaRot);
-    Tr = G4Transform3D(Ra, Ta);
+    Tr= G4Transform3D(Ra, Ta);
     Ra.rotateY(-alphaRot);
-    G4SubtractionSolid* subtraction = new G4SubtractionSolid("Sector", sec1.solid, sec5Solid,Tr);
+    G4SubtractionSolid* subtraction = new G4SubtractionSolid("Sector", sec1.solid, sec5Solid, Tr);
 
 
     G4LogicalVolume *resultlogical = new G4LogicalVolume(subtraction,sec1.material,"Sector");
@@ -607,10 +610,20 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     // ABSORBERS
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     
-    /// Bar 1 BAD ///
+    /// Bar 1 BAD /// 
+    TaSubtraction.setX(sec1_sizeX/2.0 - xNew);
+    TaSubtraction.setY(0.0);
+    TaSubtraction.setZ(-sec1_sizeZ/2.0 - zNew);
+    Ra.rotateY(alphaRot); // becaose in line 589 we rotated !!
+    TrSubtraction = G4Transform3D(Ra, TaSubtraction); 
+    Ra.rotateY(-alphaRot);
+    
+
 
     Sabsorbers_vec1.resize(8);
     Labsorbers_vec1.resize(8);
+    Labsorbers_result_vec1.resize(8);
+    subtraction_vec1.resize(8);
     for (Int_t i = 0; i< nBrinks; i++){
     Sabsorbers_vec1.at(i).resize(abs_amount_b.at(i));
     Labsorbers_vec1.at(i).resize(abs_amount_b.at(i));
@@ -680,10 +693,15 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                 Ta.setY(start_points_1[i][1]);
                 Sabsorbers_vec1[i].at(j) = new G4Box ("abs", (vWidths_bad[i].at(j)/2+0.000001)*mm, UA9Const::_absorber_thick/2, (vLenghs_bad[i].at(j)/2)*mm);
             }
-            Labsorbers_vec1[i].at(j) = new G4LogicalVolume (Sabsorbers_vec1[i].at(j), fiberCorr.material, "abs"); 
+            Labsorbers_vec1[i].at(j) = new G4LogicalVolume (Sabsorbers_vec1[i].at(j), fiberCorr.material, "abs");
             Ta.setZ(zMy); 
             Tr = G4Transform3D(Ra, Ta);
-            new G4PVPlacement (Tr, Labsorbers_vec1[i].at(j), "abs", world.logical, true, 0);
+            if ( j == 0 ){
+                subtraction_vec1.at(i) = new G4SubtractionSolid ("subabs", Sabsorbers_vec1[i].at(j) , sec5Solid, TrSubtraction);
+                Labsorbers_result_vec1.at(i) = new G4LogicalVolume( subtraction_vec1.at(i), sec1.material ,"Sector");
+                new G4PVPlacement (Tr, Labsorbers_result_vec1.at(i), "abs", world.logical, true, 0);
+            }
+            else new G4PVPlacement (Tr, Labsorbers_vec1[i].at(j), "abs", world.logical, true, 0);
 
         }   
     }

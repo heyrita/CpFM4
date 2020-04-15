@@ -3,6 +3,7 @@
 //My
 #include "VolumeStructures.hh"
 #include "DetectorMessenger.hh"
+#include "G4SubtractionSolid.hh"
 
 //G4
 #include "G4VUserDetectorConstruction.hh"
@@ -67,12 +68,15 @@ public:
 
   ///Bar 1 ///
   vector < vector <G4VSolid*>> Sabsorbers_vec1;
-  vector <vector <G4LogicalVolume*> > Labsorbers_vec1;
+  vector < vector <G4LogicalVolume*>> Labsorbers_vec1;
+  vector <G4SubtractionSolid*> subtraction_vec1;
+  vector <G4LogicalVolume*> Labsorbers_result_vec1;
  
   ///Bar 2
   vector <vector <G4VSolid*> >Sabsorbers_vec2;
   vector < vector <G4LogicalVolume*>> Labsorbers_vec2;
-
+  vector <G4LogicalVolume*> Labsorbers_result_vec2;
+  vector <G4SubtractionSolid*> subtraction_vec2;
   
 
  
