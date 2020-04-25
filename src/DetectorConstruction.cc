@@ -71,11 +71,13 @@ pair <vector<vector<Double_t>>,
   vWidths.resize (nFiles);
   vector<vector<Double_t>> vLenghs;
   vLenghs.resize (nFiles);
+  std::vector<Double_t> xxxx;
 
   TIter next(fileElements);
   TChainElement *chEl=0;
 
   Int_t k = 0;
+  Double_t suma = 0;
   vector <Double_t> sum ; 
 
    while ((chEl = (TChainElement*)next())) {
@@ -90,10 +92,14 @@ pair <vector<vector<Double_t>>,
       //cout << content << " " << bin_w << endl;
       vWidths.at(k).push_back(content);
       vLenghs.at(k).push_back(bin_w);
+      suma+= bin_w;
       
     }
     delete tree;
     k++;
+    cout << "suma = " << suma << endl ;
+    suma = 0;
+   
   }
 
   return make_pair (vWidths, vLenghs);
