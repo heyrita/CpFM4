@@ -161,8 +161,8 @@ DetectorConstruction::~DetectorConstruction()
 void DetectorConstruction::DefineMaterials()
 {
     // Define elements
-    fName_g = "/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/abs_sizes/good_bar/h*.root";
-    fName_b = "/home/rita/Documents/cpfm_geant/CpFm_G10/CpFM4/abs_sizes/bad_bar/h*.root";
+    fName_g = "../abs_sizes/good_bar/h*.root";
+    fName_b = "../abs_sizes/bad_bar/h*.root";
 
     auto absSizes_g = read_sizes(fName_g);
     auto absSizes_b = read_sizes(fName_b);
