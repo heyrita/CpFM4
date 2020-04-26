@@ -34,38 +34,18 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ROOT_CXX_FLAGS}")
 #----------------------------------------------------------------------------
 # Find ROOT (optional package)
 #
-#set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} /etc/root/cmake/)
-##include(FindROOT.cmake)
-#find_package(ROOT)
-#if(ROOT_FOUND)
-#  add_definitions(-DG4ANALYSIS_USE_ROOT)
-#else()
-#  set(ROOTSYS /home/gred/root_34_36)
-#  set(ROOT_VERSION 5.34/36)
-#  set(ROOT_INCLUDE_DIR ${ROOTSYS}/include)
-#  set(ROOT_LIBRARY_DIR ${ROOTSYS}/lib)
-#  set(ROOT_LIBRARIES -LIBPATH:${ROOT_LIBRARY_DIR} -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic)
-#endif()
-
-
-
-#----------------------------------------------------------------------------
-# You need to tell CMake where to find the ROOT installation. This can be done in a number of ways:
-#   - ROOT built with classic configure/make use the provided $ROOTSYS/etc/cmake/FindROOT.cmake
-#   - ROOT built with CMake. Add in CMAKE_PREFIX_PATH the installation prefix for ROOT
-list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
-list(APPEND CMAKE_MODULE_PATH $ENV{ROOTSYS}/etc/cmake)
-
-set (CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -ldl")
-
-#---Locate the ROOT package and defines a number of variables (e.g. ROOT_INCLUDE_DIRS)
-find_package(ROOT REQUIRED COMPONENTS RIO Net)
-
-#---Define useful ROOT functions and macros (e.g. ROOT_GENERATE_DICTIONARY)
-include(${ROOT_USE_FILE})
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} /etc/root/cmake/)
+#include(FindROOT.cmake)
+find_package(ROOT)
+if(ROOT_FOUND)
+  add_definitions(-DG4ANALYSIS_USE_ROOT)
+else()
+  set(ROOTSYS /home/gred/root_34_36)
+  set(ROOT_VERSION 5.34/36)
+  set(ROOT_INCLUDE_DIR ${ROOTSYS}/include)
+  set(ROOT_LIBRARY_DIR ${ROOTSYS}/lib)
+  set(ROOT_LIBRARIES -LIBPATH:${ROOT_LIBRARY_DIR} -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic)
+endif()
 
 
 #----------------------------------------------------------------------------

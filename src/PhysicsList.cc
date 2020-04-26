@@ -50,7 +50,7 @@ PhysicsList::PhysicsList() : G4VUserPhysicsList()
   SetVerboseLevel(1);
 
 
-  theParticleIterator = GetParticleIterator();
+ // theParticleIterator = GetParticleIterator();
 }
 
 PhysicsList::~PhysicsList()
@@ -224,7 +224,7 @@ void PhysicsList::ConstructOp()
   // Optical Photon Processes
   theCerenkovProcess = new G4Cerenkov("Cerenkov");
 
-//  theCerenkovProcess->DumpPhysicsTable();
+  theCerenkovProcess->DumpPhysicsTable();
 
   SetVerbose(1);
 
@@ -233,8 +233,8 @@ void PhysicsList::ConstructOp()
   theCerenkovProcess->SetTrackSecondariesFirst(true);
 
   theBoundaryProcess = new G4OpBoundaryProcess();
-//  G4OpticalSurfaceModel theModel = unified;
-//  theBoundaryProcess->SetModel(theModel);
+   G4OpticalSurfaceModel theModel = unified;
+   theBoundaryProcess->SetModel(theModel);
   
   theParticleIterator->reset();
   while( (*theParticleIterator)() ) {

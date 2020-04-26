@@ -3,7 +3,7 @@
 
 #include "G4VUserPhysicsList.hh"
 #include "globals.hh"
-#include "G4SystemOfUnits.hh"
+// #include "G4SystemOfUnits.hh"
 
 class G4Cerenkov;
 class G4OpAbsorption;
@@ -47,7 +47,7 @@ private:
   G4OpRayleigh* theRayleighScatteringProcess;
   G4OpBoundaryProcess* theBoundaryProcess;
 
-  G4ParticleTable::G4PTblDicIterator* theParticleIterator;
+ // G4ParticleTable::G4PTblDicIterator* theParticleIterator;
 };
 
 #endif
