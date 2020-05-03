@@ -616,7 +616,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     // ABSORBERS
     //-----------------------------------------------------------------------------------------------////-----------------------------------------------------------------------------------------------//
     
-    /// Bar 1 BAD /// 
+    /// Bar 2 GOOD /// 
     TaSubtraction.setX(sec1_sizeX/2.0 - xNew);
     TaSubtraction.setY(0.0);
     TaSubtraction.setZ(-sec1_sizeZ/2.0 - zNew);
@@ -631,8 +631,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     Labsorbers_result_vec1.resize(8);
     subtraction_vec1.resize(8);
     for (Int_t i = 0; i< nBrinks; i++){
-    Sabsorbers_vec1.at(i).resize(abs_amount_b.at(i));
-    Labsorbers_vec1.at(i).resize(abs_amount_b.at(i));
+    Sabsorbers_vec1.at(i).resize(abs_amount_g.at(i));
+    Labsorbers_vec1.at(i).resize(abs_amount_g.at(i));
     }   
 
     G4double shift = 0;
@@ -670,34 +670,34 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     std::cout << "Start" << std::endl;
     for(int i = 0; i < 8; i++){
         //cout << i << "tuuut " << endl;
-        for(int j = 0; j < abs_amount_b[i]; j++){
+        for(int j = 0; j < abs_amount_g[i]; j++){
             //cout << j << endl;
             if(j == 0){
-            zMy = start_points_1[i][2] + (vLenghs_bad[i].at(j)/2)*mm;
+            zMy = start_points_1[i][2] + (vLenghs_good[i].at(j)/2)*mm;
             }
             else{
-                shift = (vLenghs_bad[i].at(j)/2) + vLenghs_bad[i].at(j-1)/2;
+                shift = (vLenghs_good[i].at(j)/2) + vLenghs_good[i].at(j-1)/2;
                 zMy += shift*mm;
             }
             if(abs(start_points_1[i][0]) == sec1_sizeX/2+UA9Const::_absorber_thick/2){
                 if(start_points_1[i][1] < 0){
-                    Ta.setY(start_points_1[i][1] + vWidths_bad[i][j]/2);
+                    Ta.setY(start_points_1[i][1] + vWidths_good[i][j]/2);
                 }
                 else{
-                    Ta.setY(start_points_1[i][1] - vWidths_bad[i][j]/2);
+                    Ta.setY(start_points_1[i][1] - vWidths_good[i][j]/2);
                 }
                 Ta.setX(start_points_1[i][0]);
-                Sabsorbers_vec1[i].at(j) = new G4Box ("abs", UA9Const::_absorber_thick/2, (vWidths_bad[i].at(j)/2+0.000001)*mm , (vLenghs_bad[i].at(j)/2)*mm );
+                Sabsorbers_vec1[i].at(j) = new G4Box ("abs", UA9Const::_absorber_thick/2, (vWidths_good[i].at(j)/2+0.000001)*mm , (vLenghs_good[i].at(j)/2)*mm );
             }
             else{
                 if(start_points_1[i][0] < 0){
-                    Ta.setX(start_points_1[i][0] + vWidths_bad[i][j]/2);    
+                    Ta.setX(start_points_1[i][0] + vWidths_good[i][j]/2);    
                 }
                 else{
-                    Ta.setX(start_points_1[i][0] - vWidths_bad[i][j]/2);
+                    Ta.setX(start_points_1[i][0] - vWidths_good[i][j]/2);
                 }
                 Ta.setY(start_points_1[i][1]);
-                Sabsorbers_vec1[i].at(j) = new G4Box ("abs", (vWidths_bad[i].at(j)/2+0.000001)*mm, UA9Const::_absorber_thick/2, (vLenghs_bad[i].at(j)/2)*mm);
+                Sabsorbers_vec1[i].at(j) = new G4Box ("abs", (vWidths_good[i].at(j)/2+0.000001)*mm, UA9Const::_absorber_thick/2, (vLenghs_good[i].at(j)/2)*mm);
             }
             Labsorbers_vec1[i].at(j) = new G4LogicalVolume (Sabsorbers_vec1[i].at(j), fiberCorr.material, "abs");
             Ta.setZ(zMy); 
@@ -712,13 +712,13 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
         }   
     }
 
-    /// Bar 2 GOOD ///
+    /// Bar 2 BAD ///
 
     Sabsorbers_vec2.resize(8);
     Labsorbers_vec2.resize(8);
     for (Int_t i = 0; i< nBrinks; i++){
-    Sabsorbers_vec2.at(i).resize(abs_amount_g.at(i));
-    Labsorbers_vec2.at(i).resize(abs_amount_g.at(i));
+    Sabsorbers_vec2.at(i).resize(abs_amount_b.at(i));
+    Labsorbers_vec2.at(i).resize(abs_amount_b.at(i));
     }   
 
      shift = 0;
@@ -756,35 +756,35 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     std::cout << "Start" << std::endl;
     for(int i = 0; i < 8; i++){
         //cout << i << "tuuut " << endl;
-        for(int j = 0; j < abs_amount_g[i]; j++){
+        for(int j = 0; j < abs_amount_b[i]; j++){
             //cout << j << endl;
             if(j == 0){
-            zMy = start_points_2[i][2] + (vLenghs_good[i].at(j)/2)*mm;
+            zMy = start_points_2[i][2] + (vLenghs_bad[i].at(j)/2)*mm;
             }
             else{
-                shift = (vLenghs_good[i].at(j)/2) + vLenghs_good[i].at(j-1)/2;
+                shift = (vLenghs_bad[i].at(j)/2) + vLenghs_bad[i].at(j-1)/2;
                 zMy += shift*mm;
             }
             if(start_points_2[i][0] == sec1_sizeX/2+UA9Const::_absorber_thick/2 + xCopyShift || 
                 start_points_2[i][0] == -sec1_sizeX/2 -UA9Const::_absorber_thick/2 + xCopyShift) {
                 if(start_points_2[i][1] < 0){
-                    Ta.setY(start_points_2[i][1] + vWidths_good[i][j]/2);
+                    Ta.setY(start_points_2[i][1] + vWidths_bad[i][j]/2);
                 }
                 else{
-                    Ta.setY(start_points_2[i][1] - vWidths_good[i][j]/2);
+                    Ta.setY(start_points_2[i][1] - vWidths_bad[i][j]/2);
                 }
                 Ta.setX(start_points_2[i][0]);
-                Sabsorbers_vec2[i].at(j) = new G4Box ("abs", UA9Const::_absorber_thick/2, (vWidths_good[i].at(j)/2+0.000001)*mm , (vLenghs_good[i].at(j)/2)*mm );
+                Sabsorbers_vec2[i].at(j) = new G4Box ("abs", UA9Const::_absorber_thick/2, (vWidths_bad[i].at(j)/2+0.000001)*mm , (vLenghs_bad[i].at(j)/2)*mm );
             }
             else{
                 if(start_points_2[i][0] == -sec1_sizeX/2 + xCopyShift){
-                    Ta.setX(start_points_2[i][0] + vWidths_good[i][j]/2);    
+                    Ta.setX(start_points_2[i][0] + vWidths_bad[i][j]/2);    
                 }
                 else{
-                    Ta.setX(start_points_2[i][0] - vWidths_good[i][j]/2);
+                    Ta.setX(start_points_2[i][0] - vWidths_bad[i][j]/2);
                 }
                 Ta.setY(start_points_2[i][1]);
-                Sabsorbers_vec2[i].at(j) = new G4Box ("abs", (vWidths_good[i].at(j)/2+0.000001)*mm, UA9Const::_absorber_thick/2, (vLenghs_good[i].at(j)/2)*mm);
+                Sabsorbers_vec2[i].at(j) = new G4Box ("abs", (vWidths_bad[i].at(j)/2+0.000001)*mm, UA9Const::_absorber_thick/2, (vLenghs_bad[i].at(j)/2)*mm);
             }
             Labsorbers_vec2[i].at(j) = new G4LogicalVolume (Sabsorbers_vec2[i].at(j), fiberCorr.material, "abs"); 
             Ta.setZ(zMy); 
@@ -798,7 +798,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 /*
     G4VSolid *absorber_subpart1_1 = new G4Box("Absorber", sec1_sizeX/2.0 + UA9Const::_absorber_thick, sec1_sizeY/2.0 + UA9Const::_absorber_thick, sec1_sizeZ/2.0);
-    G4VSolid *absorber_subpart2_1 = new G4Box("Absorber", sec1_sizeX/2.0, sec1_sizeY/2.0, sec1_sizeZ);
+    G4VSolid *absorber_hesubpart2_1 = new G4Box("Absorber", sec1_sizeX/2.0, sec1_sizeY/2.0, sec1_sizeZ);
     G4VSolid *absorber_subpart3_1 = new G4Box("Absorber", sec1_sizeX/2.0 - _abs_width1, (sec1_sizeY/2.0 + UA9Const::_absorber_thick)*2.0, sec1_sizeZ);
     G4VSolid *absorber_subpart4_1 = new G4Box("Absorber", (sec1_sizeX/2.0 + UA9Const::_absorber_thick)*2.0, sec1_sizeY/2.0 - _abs_width1, sec1_sizeZ);
     G4SubtractionSolid* absorber_subpart5_1 = new G4SubtractionSolid("Absorber", absorber_subpart1_1, absorber_subpart2_1,0,G4ThreeVector());
